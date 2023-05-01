@@ -1,15 +1,24 @@
-function Statistics({good, neutral, bad, total, positiveFeedback}) {
-    return(
+import React from 'react';
+import PropTypes, { number } from 'prop-types';
+
+function Statistics({ good, neutral, bad, total, positivePercentage }) {
+  return (
     <>
-    <h2>Statistics</h2>
-    <p>Good:{good}</p>
-    <p>Neutral:{neutral}</p>
-    <p>Bad:{bad}</p>
-    <p>Total:{total}</p>
-    <p>Positive feedback:{positiveFeedback}%</p>
+      <h2>Statistics</h2>
+      <p>Good:{good}</p>
+      <p>Neutral:{neutral}</p>
+      <p>Bad:{bad}</p>
+      <p>Total:{total}</p>
+      <p>Positive feedback:{positivePercentage}%</p>
     </>
-    )
+  );
 }
 export default Statistics;
 
-// total===0 ? 0 :positiveFeedback
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: number.isRequired,
+};
